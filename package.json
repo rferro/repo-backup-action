@@ -1,0 +1,44 @@
+{
+  "name": "repo-backup-action",
+  "version": "0.0.0",
+  "private": true,
+  "description": "GitHub Action to backup the entire repo to S3",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rferro/repo-backup-action.git"
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "setup"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^4.0.0",
+    "date-fns": "^2.15.0",
+    "slugify": "^1.4.5",
+    "string-template": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "@types/string-template": "^1.0.2",
+    "@typescript-eslint/parser": "^3.9.1",
+    "@vercel/ncc": "^0.23.0",
+    "eslint-plugin-github": "^4.1.1",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint": "^7.5.0",
+    "prettier": "2.0.5",
+    "typescript": "^4.0.2"
+  }
+}

@@ -1,0 +1,17 @@
+name: Backup
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  backup:
+    name: Backup
+    runs-on: ubuntu-latest
+    steps:
+    - name: Repo Backup to S3
+      uses: rferro/repo-backup-action@v1
+      with:
+        accessKeyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        secretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        bucket: rferro-github

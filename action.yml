@@ -1,0 +1,43 @@
+name: Repo Backup Action
+description: GitHub Action to backup the entire repo to S3
+author: rferro
+branding:
+  icon: upload-cloud
+  color: green
+inputs:
+  repository:
+    description: Repository name with owner. For example, actions/checkout
+    required: false
+    default: ${{ github.repository }}
+  token:
+    description: Personal access token (PAT) used to fetch the repository.
+    required: false
+    default: ${{ github.token }}
+  accessKeyId:
+    description: Your AWS Access Key
+    required: true
+  secretAccessKey:
+    description: Your AWS Secret Access Key
+    required: true
+  args:
+    description: Additional args to S3 copy command
+    required: false
+    default: ''
+  bucket:
+    description: The name of the bucket
+    required: true
+  objectDir:
+    description: The object directory template
+    required: false
+    default: '{owner}/{repo}/{date}'
+  objectName:
+    description: The filename template
+    required: false
+    default: '{time}-{repo}-{ref}-{sha}'
+  timeFormat:
+    description: The github token secret
+    required: false
+    default: T
+runs:
+  using: node12
+  main: dist/index.js
